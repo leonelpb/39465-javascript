@@ -42,31 +42,17 @@ const productos = [
 ];
 
 // Asignar cada objeto del array 'productos' a una variable
-const procesadorRyzen5600x = productos[1];
-const procesadorRyzen7600 = productos[2];
-const procesadorRyzen5900x = productos[3];
-const procesadorRyzen3900xt = productos[4];
-
-let productoCarrito = parseInt(prompt("Escoge el número del producto deseado. 1.Ryzen 5 5600x - 2.Ryzen 5 7600 - 3.Ryzen 9 5900x - 4.Ryzen 9 3900xt"));
+let productoCarrito = parseInt(prompt("Escoge el número del producto deseado. 0.Ryzen 5 5600x - 1.Ryzen 5 7600 - 2.Ryzen 9 5900x - 3.Ryzen 9 3900xt"));
 let escogioProducto = false;
 let infoProductoCarrito;
 
 while (escogioProducto === false) {
-    if (productoCarrito === 1) {
-        escogioProducto = true;
-        infoProductoCarrito = procesadorRyzen5600x;
-    } else if (productoCarrito === 2) {
-        escogioProducto = true;
-        infoProductoCarrito = procesadorRyzen7600;
-    } else if (productoCarrito === 3) {
-        escogioProducto = true;
-        infoProductoCarrito = procesadorRyzen5900x;
-    } else if (productoCarrito === 4) {
-        escogioProducto = true;
-        infoProductoCarrito = procesadorRyzen3900xt;
-    } else {
-        productoCarrito = parseInt(prompt("Escoge un número de producto correcto. 1.Ryzen 5 5600x - 2.Ryzen 5 7600 - 3.Ryzen 9 5900x - 4.Ryzen 9 3900xt"));
-    }
+  if (productoCarrito >= 0 && productoCarrito <= productos.length) {
+    escogioProducto = true;
+    infoProductoCarrito = productos[productoCarrito];
+  } else {
+    productoCarrito = parseInt(prompt("Escoge un número de producto correcto. 0.Ryzen 5 5600x - 1.Ryzen 5 7600 - 2.Ryzen 9 5900x - 3.Ryzen 9 3900xt"));
+  }
 };
 
 alert("El producto escogido es: " + infoProductoCarrito.nombre + " se ha agregado al carrito");
@@ -77,5 +63,6 @@ function calcularPrecio(producto) {
 }
 
 let precioAPagar = calcularPrecio(infoProductoCarrito);
-alert("El precio a pagar es: " + precioAPagar)
+alert("El precio a pagar es: " + precioAPagar);
 console.log("Precio del producto: " + precioAPagar);
+
